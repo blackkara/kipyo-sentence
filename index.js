@@ -1,19 +1,16 @@
 var KipyoSentence = (function(){
     'use strict';
     
-    
     // $KPYT,1,fused:root,38.467416,27.159084,1423167000,90,90
     // $KPYG,1,fused:root,38.467416,27.159084,1423167000,90,90,10,1
     var fieldSeperator = ',';
     var sentenceSeperator = ';';
-    
     
     // 1. Kipyo tracking sentence : $KPYT
     // $KPYT includes 8 tokens (8 fields about tracking)
     // @Identifier, @Device id, @Provider, @Latitude, @Longitude, @Date, @Speed, @Direction
     var kpytTokenLength = 8;
     var kpytIdentifier = 'KPYT';
-    
     
     // 2. Kipyo geofencing sentence: $KPYG
     // $KPYG includes 10 tokens (10 fields about tracking)
@@ -73,7 +70,6 @@ var KipyoSentence = (function(){
         
         if(identifier !== kpytIdentifier && identifier !== kpygIdentifier)
             throw new Error('Identifier error');
-
 
         /*  Kipyo tracking sentence $KPYT
             1. @Identifier
