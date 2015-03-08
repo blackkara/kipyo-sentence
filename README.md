@@ -24,7 +24,7 @@ It's kipyo tracking sentence. When devices get location, creates this sentence
  * Latitude   : 38.428428
  * Longitude  : 27.133139
  * Date       : 1424992557
- * Speed      : 10
+ * Speed      : 10 m/s
  * Bearing    : 5
  */
  var sentence = '$KPYT,DEVICE_ID_123,fused:root,38.428428,27.133139,1424992557,10,5';
@@ -39,7 +39,7 @@ It's kipyo geofencing sentence. When occured geofencing, creates this sentence
  * Latitude     : 38.428428
  * Longitude    : 27.133139
  * Date         : 1424992557
- * Speed        : 10
+ * Speed        : 10 m/s
  * Bearing      : 5
  * Geofence id      : GEOFENCE_ID_123
  * Geofencing type  : 1

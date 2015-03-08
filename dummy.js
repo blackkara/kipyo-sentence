@@ -7,7 +7,8 @@ module.exports = {
         var fixdate = getFixdate();
         var speed = getSpeed();
         var bearing = getBearing();
-        return '$KPYT,DEVICE_ID,' + provider + ',' + latlng + ',' + fixdate + ',' + speed + ',' + bearing;
+        var accuracy = 10;
+        return '$KPYT,DEVICE_ID,' + provider + ',' + accuracy + ',' + latlng + ',' + fixdate + ',' + speed + ',' + bearing;
     }
 }
 

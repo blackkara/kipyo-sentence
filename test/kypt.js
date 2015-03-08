@@ -14,14 +14,14 @@ var wrongSentence01,
     wrongSentence07 = function(){};
     
 var wrongSentence08 = '',
-    wrongSentence09 = 'Evet bu cümle tam olarak sekiz parçadan oluşuyor',
-    wrongSentence10 = 'Evet,bu,cümle,tam,olarak,sekiz,parçadan,oluşuyor',
-    wrongSentence11 = '$KPYT,bu,cümle,tam,olarak,sekiz,parçadan,oluşuyor';
+    wrongSentence09 = 'Evet bu  cümle tam olarak sekiz parçadan oluşuyor',
+    wrongSentence10 = 'Evet,bu,,cümle,tam,olarak,sekiz,parçadan,oluşuyor',
+    wrongSentence11 = '$KPYT,bu,,cümle,tam,olarak,sekiz,parçadan,oluşuyor';
     
-var wrongSentence12 = '$XXX,1,fused:root,38.467416,27.159084,1423167000,90,90',
-    wrongSentence13 = '1,fused:root,38.467416,27.159084,1423167000,90,90';
+var wrongSentence12 = '$XXX,1,fused:root,,38.467416,27.159084,1423167000,90,90',
+    wrongSentence13 = '1,fused:root,,38.467416,27.159084,1423167000,90,90';
 
-var validSentence01 = '$KPYT,1,fused:root,38.467416,27.159084,1423167000,90,90';
+var validSentence01 = '$KPYT,1,fused:root,,38.467416,27.159084,1423167000,90,90';
 
 
 describe('KPYT SENTENCE (SINGLE)', function(){
