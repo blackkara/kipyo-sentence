@@ -1,4 +1,4 @@
-Kipyo-Sentence
+smyrna-sentence
 =========
 
 A Simple, tracking and geofencing protocol for kipyo, like nmea sentences. Sentence includes device id and android location object properties. e.g provider, latitude, longitude, speed, bearing
@@ -14,7 +14,7 @@ Basically, responses below questions
 
 
 ### $KPYT
-It's kipyo tracking sentence. When devices get location, creates this sentence
+It's tracking sentence. When devices get location, creates this sentence
 ```javascript
 /**
  * Device id  : DEVICE_ID_123
@@ -30,7 +30,7 @@ It's kipyo tracking sentence. When devices get location, creates this sentence
 ```
 
 ### $KPYG
-It's kipyo geofencing sentence. When occured geofencing, creates this sentence
+It's geofencing sentence. When occured geofencing, creates this sentence
 ```javascript
 /**
  * Device       : DEVICE_ID_123
