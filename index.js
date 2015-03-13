@@ -1,6 +1,6 @@
 var KipyoSentence = (function(){
     'use strict';
-    
+
    /**
     * Kipyo tracking sentence
     * $KPYT,1,fused:root,10,38.467416,27.159084,1423167000,90,90
@@ -8,69 +8,69 @@ var KipyoSentence = (function(){
     * Kipyo geofencing sentence
     * $KPYG,1,fused:root,10,38.467416,27.159084,1423167000,90,90,10,1
     */
-    
+
     var fieldSeperator = ',';
     var sentenceSeperator = ';';
-    
-   /** 
+
+   /**
     * Kipyo tracking sentence : $KPYT
     * $KPYT includes 9 tokens (9 fields about tracking)
     *
     * @Identifier
     * @Device id
-    * @Provider 
-    * @Accuracy 
-    * @Latitude 
-    * @Longitude 
+    * @Provider
+    * @Accuracy
+    * @Latitude
+    * @Longitude
     * @Date
-    * @Speed 
+    * @Speed
     * @Bearing
     */
     var kpytTokenLength = 9;
     var kpytIdentifier = 'KPYT';
-    
-   /** 
+
+   /**
     * Kipyo geofencing sentence: $KPYG
     * $KPYG includes 11 tokens (11 fields about tracking)
-    * 
+    *
     * @Identifier
-    * @Device id 
-    * @Provider 
-    * @Accuracy 
-    * @Latitude 
-    * @Longitude 
+    * @Device id
+    * @Provider
+    * @Accuracy
+    * @Latitude
+    * @Longitude
     * @Date
-    * @Speed 
+    * @Speed
     * @Bearing
-    * @Geofence id 
+    * @Geofence id
     * @Geofencing type
     */
     var kpygTokenLength = 11;
     var kpygIdentifier = 'KPYG';
-    
-    
-    
+
+
+
     var protocol = {};
 
     protocol.parse = function(sentence){
-        
+
         if((typeof sentence)!== 'string') throw new Error('sentence parameter is not a string');
         if(sentence.length === 0) throw new Error('sentence length can not be 0');
-             
-        
+
+
         var merged = sentence.split(sentenceSeperator);
-        
+
         if(merged.length === 1) return protocol.parseSingle(sentence);
-        
+
         if(merged.length > 1) return protocol.parseMerged(merged);
-        
+
         throw new Error('sentence parameter is not a string');
     };
-    
+
     protocol.kpyt = function(data){
-        
+
         var k = [];
-        
+
         k.push('$KPYT');
         k.push(data.deviceId);
         k.push(data.provider);
@@ -80,16 +80,16 @@ var KipyoSentence = (function(){
         k.push(data.date);
         k.push(data.speed);
         k.push(data.bearing);
-        
+
         var kpyt = k.join();
         return kpyt;
-        
+
     };
-    
+
     protocol.kpyg = function(data){
-        
+
         var k = [];
-        
+
         k.push('$KPYG');
         k.push(data.deviceId);
         k.push(data.provider);
@@ -101,14 +101,14 @@ var KipyoSentence = (function(){
         k.push(data.bearing);
         k.push(data.geofenceId);
         k.push(data.geofenceType);
-        
+
         var kpyg = k.join();
         return kpyg;
-    
+
     };
 
     protocol.parseMerged = function(merged){
-        
+
         /**
         * Multi (merged)
         * $KPYT,1,fused:root,10,38.467416,27.159084,1423167000,90,90;
@@ -126,18 +126,18 @@ var KipyoSentence = (function(){
     };
 
     protocol.parseSingle = function(sentence){
-        
+
         /**
         * Single
         * $KPYT,1,fused:root,10,38.467416,27.159084,1423167000,90,90
         */
         var tokens = sentence.split(fieldSeperator);
-        
-        if(tokens.length !== kpytTokenLength && tokens.length !== kpygTokenLength) 
+
+        if(tokens.length !== kpytTokenLength && tokens.length !== kpygTokenLength)
             throw new Error('Token length error');
 
         var identifier = tokens[0].substring(1);
-        
+
         if(identifier !== kpytIdentifier && identifier !== kpygIdentifier)
             throw new Error('Identifier error');
 
@@ -207,6 +207,6 @@ var KipyoSentence = (function(){
 
 var hasModule = (typeof module !== 'undefined' && module.exports && typeof require !== 'undefined');
 
-if (hasModule) module.exports = KipyoSentence; 
+if (hasModule) module.exports = KipyoSentence;
 
 else window.KipyoSentence = KipyoSentence;
