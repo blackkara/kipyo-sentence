@@ -84,7 +84,7 @@ var KipyoSentence = (function(){
         var kpyt = k.join();
         return kpyt;
         
-    }
+    };
     
     protocol.kpyg = function(data){
         
@@ -104,8 +104,8 @@ var KipyoSentence = (function(){
         
         var kpyg = k.join();
         return kpyg;
-        
-    }
+    
+    };
 
     protocol.parseMerged = function(merged){
         
@@ -164,7 +164,7 @@ var KipyoSentence = (function(){
                     date: tokens[6],
                     speed: tokens[7],
                     bearing: tokens[8]
-                }
+                };
             }
         }
 
@@ -195,14 +195,18 @@ var KipyoSentence = (function(){
                     bearing: tokens[8],
                     geofence: tokens[9],
                     geotype: tokens[10]
-                }
+                };
             }
         }
 
         throw new Error('Sentence cant recognized');
-    }
+    };
 
     return protocol;
 }());
 
-module.exports = KipyoSentence;
+var hasModule = (typeof module !== 'undefined' && module.exports && typeof require !== 'undefined');
+
+if (hasModule) module.exports = KipyoSentence; 
+
+else window.KipyoSentence = KipyoSentence;

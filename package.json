@@ -1,0 +1,27 @@
+{
+  "name": "smyrna-sentence",
+  "version": "1.0.1",
+  "description": "communication protocol",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/blackkara/smyrna-sentence.git"
+  },
+  "keywords": [
+    "tracking",
+    "geofencing",
+    "protocol"
+  ],
+  "author": "Mustafa (mustafa@mustafa.be)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/blackkara/smyrna-sentence/issues"
+  },
+  "homepage": "https://github.com/blackkara/smyrna-sentence"
+}
