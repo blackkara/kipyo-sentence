@@ -1,6 +1,6 @@
 var assert = require('assert');
 var dummy = require('../dummy.js');
-var ks = require('../index.js');
+var ss = require('../index.js');
 var Log = false;
 
 
@@ -27,52 +27,52 @@ var validSentence01 = '$KPYT,1,fused:root,,38.467416,27.159084,1423167000,90,90'
 describe('KPYT SENTENCE (SINGLE)', function(){
     
     var sentence = dummy.kpyt();
-    var parsed = ks.parse(sentence);
+    var parsed = ss.parse(sentence);
     
     if(Log) console.log('Sentence: ' + sentence);
     if(Log) console.log('Sentence token length : ' + Object.keys(parsed).length);
     
     it('throws not string error', function(){
-        assert.throws(function(){ks.parse(wrongSentence01)});
+        assert.throws(function(){ss.parse(wrongSentence01)});
     });
     it('throws not string error', function(){
-        assert.throws(function(){ks.parse(wrongSentence02)});
+        assert.throws(function(){ss.parse(wrongSentence02)});
     });
     it('throws not string error', function(){
-        assert.throws(function(){ks.parse(wrongSentence03)});
+        assert.throws(function(){ss.parse(wrongSentence03)});
     });
     it('throws not string error', function(){
-        assert.throws(function(){ks.parse(wrongSentence04)});
+        assert.throws(function(){ss.parse(wrongSentence04)});
     });
     it('throws not string error', function(){
-        assert.throws(function(){ks.parse(wrongSentence05)});
+        assert.throws(function(){ss.parse(wrongSentence05)});
     });
     it('throws not string error', function(){
-        assert.throws(function(){ks.parse(wrongSentence06)});
+        assert.throws(function(){ss.parse(wrongSentence06)});
     });
     it('throws not string error', function(){
-        assert.throws(function(){ks.parse(wrongSentence07)});
+        assert.throws(function(){ss.parse(wrongSentence07)});
     });
     it('throws string length error', function(){
-        assert.throws(function(){ks.parse(wrongSentence08)});
+        assert.throws(function(){ss.parse(wrongSentence08)});
     });
     it('throws string length error', function(){
-        assert.throws(function(){ks.parse(wrongSentence09)});
+        assert.throws(function(){ss.parse(wrongSentence09)});
     });
     it('should not be a string', function(){
-        assert.throws(function(){ks.parse(wrongSentence10)});
+        assert.throws(function(){ss.parse(wrongSentence10)});
     });
     it('should not be a string', function(){
-        assert.doesNotThrow(function(){ks.parse(wrongSentence11)});
+        assert.doesNotThrow(function(){ss.parse(wrongSentence11)});
     });
     it('throws identifier error', function(){
-        assert.throws(function(){ks.parse(wrongSentence12)}, function(err){
+        assert.throws(function(){ss.parse(wrongSentence12)}, function(err){
             if(Log) console.log(err);
             return true;
         });
     });
     it('throws token length error', function(){
-        assert.throws(function(){ks.parse(wrongSentence13)}, function(err){
+        assert.throws(function(){ss.parse(wrongSentence13)}, function(err){
             if(Log) console.log(err);
             return true;
         });
@@ -84,7 +84,7 @@ describe('KPYT SENTENCE (SINGLE)', function(){
         it('should not be a string', function(){
             assert.doesNotThrow(function(){
                 current = dummy.kpyt();
-                parsed = ks.parse(current);
+                parsed = ss.parse(current);
                 if(Log) console.log(current + '\n' + JSON.stringify(parsed));
             });
         });
@@ -101,7 +101,7 @@ describe('KPYT SENTENCE (MULTI)', function(){
     it('should be succeeded', function(){
         
         assert.doesNotThrow(function(){
-            var parsed = ks.parse(mergedSentence02);
+            var parsed = ss.parse(mergedSentence02);
             if(Log) console.log(parsed);
         });
     });
@@ -109,7 +109,7 @@ describe('KPYT SENTENCE (MULTI)', function(){
     it('should be succeeded', function(){
         
         assert.doesNotThrow(function(){
-            var parsed = ks.parse(mergedSentence03);
+            var parsed = ss.parse(mergedSentence03);
             if(Log) console.log(parsed);
         });
     });
@@ -117,7 +117,7 @@ describe('KPYT SENTENCE (MULTI)', function(){
     it('should be failed', function(){
         
         assert.throws(function(){
-            var parsed = ks.parse(wrongMergedSentence01 + wrongMergedSentence03);
+            var parsed = ss.parse(wrongMergedSentence01 + wrongMergedSentence03);
             if(Log) console.log(parsed);
         }, function(err){
             if(Log) console.log(err);
@@ -128,7 +128,7 @@ describe('KPYT SENTENCE (MULTI)', function(){
     it('should be failed', function(){
         
         assert.throws(function(){
-            var parsed = ks.parse(wrongMergedSentence01);
+            var parsed = ss.parse(wrongMergedSentence01);
             if(Log) console.log(parsed);
         }, function(err){
             if(Log) console.log(err);

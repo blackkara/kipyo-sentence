@@ -1,4 +1,4 @@
-var KipyoSentence = (function(){
+var SmyrnaSentence = (function(){
     'use strict';
 
    /**
@@ -75,8 +75,8 @@ var KipyoSentence = (function(){
         k.push(data.deviceId);
         k.push(data.provider);
         k.push(data.accuracy);
-        k.push(data.latitude);
-        k.push(data.longitude);
+        k.push(data.latitude.toFixed(6));
+        k.push(data.longitude.toFixed(6));
         k.push(data.date);
         k.push(data.speed);
         k.push(data.bearing);
@@ -94,8 +94,8 @@ var KipyoSentence = (function(){
         k.push(data.deviceId);
         k.push(data.provider);
         k.push(data.accuracy);
-        k.push(data.latitude);
-        k.push(data.longitude);
+        k.push(data.latitude.toFixed(6));
+        k.push(data.longitude.toFixed(6));
         k.push(data.date);
         k.push(data.speed);
         k.push(data.bearing);
@@ -207,6 +207,6 @@ var KipyoSentence = (function(){
 
 var hasModule = (typeof module !== 'undefined' && module.exports && typeof require !== 'undefined');
 
-if (hasModule) module.exports = KipyoSentence;
+if (hasModule) module.exports = SmyrnaSentence;
 
-else window.KipyoSentence = KipyoSentence;
+else window.SmyrnaSentence = SmyrnaSentence;
